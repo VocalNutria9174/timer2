@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" >
-
+<html lang="en">
 <head>
-
   <meta charset="UTF-8">
   
 <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
@@ -13,9 +11,77 @@
 <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
 
 
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
   <title>Javascript Countdown (w/ music)</title>
+
+  <link rel="stylesheet" media="screen" href="https://cpwebassets.codepen.io/assets/fullpage/fullpage-1580f96ce81ff0a427cf57dda2748ce646c38efc201ae5942a29958cffa6856d.css" />
+  
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+
+
+  <title>Javascript Countdown (w/ music)</title>
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+  <style>
+    html { font-size: 15px; }
+    html, body { margin: 0; padding: 0; min-height: 100%; }
+    body { height:100%; display: flex; flex-direction: column; }
+    .referer-warning {
+      background: black;
+      box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+      padding: 0.75em;
+      color: white;
+      text-align: center;
+      font-family: var(--cp-font-family);
+      line-height: 1.2;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .referer-warning h1 { font-size: 1.2rem; margin: 0; }
+    .referer-warning a { color: #56bcf9; } /* $linkColorOnBlack */
+  </style>
+</head>
+
+<body class="">
+  
+
+    <iframe
+      id="result"
+      srcdoc="
+<!DOCTYPE html>
+<html lang=&quot;en&quot; >
+
+<head>
+
+  <meta charset=&quot;UTF-8&quot;>
+  
+<link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+<meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+
+<link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+
+<link rel=&quot;mask-icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg&quot; color=&quot;#111&quot; />
+
+
+  <title>CodePen - Javascript Countdown (w/ music)</title>
   <link href='https://fonts.googleapis.com/css?family=Arimo:700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css&quot;>
 
   
   
@@ -23,7 +89,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Arimo", sans-serif;
+  font-family: &quot;Arimo&quot;, sans-serif;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -153,99 +219,98 @@ body {
   
   <script>
   if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
+    window.parent.postMessage(&quot;resize&quot;, &quot;*&quot;);
   }
 </script>
 
 
 </head>
 
-<body translate="no" >
-  <div class="timer">
-   <div class="timer--clock">
-      <div class="minutes-group clock-display-grp">
-         <div class="first number-grp">
-            <div class="number-grp-wrp">
-               <div class="num num-0"><p>0</p></div>
-               <div class="num num-1"><p>1</p></div>
-               <div class="num num-2"><p>2</p></div>
-               <div class="num num-3"><p>3</p></div>
-               <div class="num num-4"><p>4</p></div>
-               <div class="num num-5"><p>5</p></div>
-               <div class="num num-6"><p>6</p></div>
-               <div class="num num-7"><p>7</p></div>
-               <div class="num num-8"><p>8</p></div>
-               <div class="num num-9"><p>9</p></div>
+<body translate=&quot;no&quot; >
+  <div class=&quot;timer&quot;>
+   <div class=&quot;timer--clock&quot;>
+      <div class=&quot;minutes-group clock-display-grp&quot;>
+         <div class=&quot;first number-grp&quot;>
+            <div class=&quot;number-grp-wrp&quot;>
+               <div class=&quot;num num-0&quot;><p>0</p></div>
+               <div class=&quot;num num-1&quot;><p>1</p></div>
+               <div class=&quot;num num-2&quot;><p>2</p></div>
+               <div class=&quot;num num-3&quot;><p>3</p></div>
+               <div class=&quot;num num-4&quot;><p>4</p></div>
+               <div class=&quot;num num-5&quot;><p>5</p></div>
+               <div class=&quot;num num-6&quot;><p>6</p></div>
+               <div class=&quot;num num-7&quot;><p>7</p></div>
+               <div class=&quot;num num-8&quot;><p>8</p></div>
+               <div class=&quot;num num-9&quot;><p>9</p></div>
             </div>
          </div>
-         <div class="second number-grp">
-            <div class="number-grp-wrp">
-               <div class="num num-0"><p>0</p></div>
-               <div class="num num-1"><p>1</p></div>
-               <div class="num num-2"><p>2</p></div>
-               <div class="num num-3"><p>3</p></div>
-               <div class="num num-4"><p>4</p></div>
-               <div class="num num-5"><p>5</p></div>
-               <div class="num num-6"><p>6</p></div>
-               <div class="num num-7"><p>7</p></div>
-               <div class="num num-8"><p>8</p></div>
-               <div class="num num-9"><p>9</p></div>
+         <div class=&quot;second number-grp&quot;>
+            <div class=&quot;number-grp-wrp&quot;>
+               <div class=&quot;num num-0&quot;><p>0</p></div>
+               <div class=&quot;num num-1&quot;><p>1</p></div>
+               <div class=&quot;num num-2&quot;><p>2</p></div>
+               <div class=&quot;num num-3&quot;><p>3</p></div>
+               <div class=&quot;num num-4&quot;><p>4</p></div>
+               <div class=&quot;num num-5&quot;><p>5</p></div>
+               <div class=&quot;num num-6&quot;><p>6</p></div>
+               <div class=&quot;num num-7&quot;><p>7</p></div>
+               <div class=&quot;num num-8&quot;><p>8</p></div>
+               <div class=&quot;num num-9&quot;><p>9</p></div>
             </div>
          </div>
       </div>
-      <div class="clock-separator"><p>:</p></div>
-      <div class="seconds-group clock-display-grp">
-         <div class="first number-grp">
-            <div class="number-grp-wrp">
-               <div class="num num-0"><p>0</p></div>
-               <div class="num num-1"><p>1</p></div>
-               <div class="num num-2"><p>2</p></div>
-               <div class="num num-3"><p>3</p></div>
-               <div class="num num-4"><p>4</p></div>
-               <div class="num num-5"><p>5</p></div>
-               <div class="num num-6"><p>6</p></div>
-               <div class="num num-7"><p>7</p></div>
-               <div class="num num-8"><p>8</p></div>
-               <div class="num num-9"><p>9</p></div>
+      <div class=&quot;clock-separator&quot;><p>:</p></div>
+      <div class=&quot;seconds-group clock-display-grp&quot;>
+         <div class=&quot;first number-grp&quot;>
+            <div class=&quot;number-grp-wrp&quot;>
+               <div class=&quot;num num-0&quot;><p>0</p></div>
+               <div class=&quot;num num-1&quot;><p>1</p></div>
+               <div class=&quot;num num-2&quot;><p>2</p></div>
+               <div class=&quot;num num-3&quot;><p>3</p></div>
+               <div class=&quot;num num-4&quot;><p>4</p></div>
+               <div class=&quot;num num-5&quot;><p>5</p></div>
+               <div class=&quot;num num-6&quot;><p>6</p></div>
+               <div class=&quot;num num-7&quot;><p>7</p></div>
+               <div class=&quot;num num-8&quot;><p>8</p></div>
+               <div class=&quot;num num-9&quot;><p>9</p></div>
             </div>
          </div>
-         <div class="second number-grp">
-            <div class="number-grp-wrp">
-               <div class="num num-0"><p>0</p></div>
-               <div class="num num-1"><p>1</p></div>
-               <div class="num num-2"><p>2</p></div>
-               <div class="num num-3"><p>3</p></div>
-               <div class="num num-4"><p>4</p></div>
-               <div class="num num-5"><p>5</p></div>
-               <div class="num num-6"><p>6</p></div>
-               <div class="num num-7"><p>7</p></div>
-               <div class="num num-8"><p>8</p></div>
-               <div class="num num-9"><p>9</p></div>
+         <div class=&quot;second number-grp&quot;>
+            <div class=&quot;number-grp-wrp&quot;>
+               <div class=&quot;num num-0&quot;><p>0</p></div>
+               <div class=&quot;num num-1&quot;><p>1</p></div>
+               <div class=&quot;num num-2&quot;><p>2</p></div>
+               <div class=&quot;num num-3&quot;><p>3</p></div>
+               <div class=&quot;num num-4&quot;><p>4</p></div>
+               <div class=&quot;num num-5&quot;><p>5</p></div>
+               <div class=&quot;num num-6&quot;><p>6</p></div>
+               <div class=&quot;num num-7&quot;><p>7</p></div>
+               <div class=&quot;num num-8&quot;><p>8</p></div>
+               <div class=&quot;num num-9&quot;><p>9</p></div>
             </div>
          </div>
       </div>
    </div>
 </div>
-<div class="reload">
-   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 65 65" enable-background="new 0 0 65 65" xml:space="preserve">
-      <path fill="#2b2b2b" d="M60.2,2.5c-2.3-0.2-4.4,1.5-4.6,3.9l-0.2,2.3c-6-5.6-13.8-8.7-22-8.7C15.5,0,0.9,14.5,0.9,32.4c0,17.9,14.5,32.4,32.4,32.4
+<div class=&quot;reload&quot;>
+   <svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 65 65&quot; enable-background=&quot;new 0 0 65 65&quot; xml:space=&quot;preserve&quot;>
+      <path fill=&quot;#2b2b2b&quot; d=&quot;M60.2,2.5c-2.3-0.2-4.4,1.5-4.6,3.9l-0.2,2.3c-6-5.6-13.8-8.7-22-8.7C15.5,0,0.9,14.5,0.9,32.4c0,17.9,14.5,32.4,32.4,32.4
          c12.3,0,23.5-6.9,29-17.9c1.1-2.1,0.2-4.7-1.9-5.7c-2.1-1.1-4.7-0.2-5.7,1.9c-4.1,8.1-12.3,13.2-21.4,13.2
          c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9c6.1,0,11.9,2.3,16.4,6.5l-3.4-0.3c-2.3-0.2-4.4,1.5-4.6,3.9
          c-0.2,2.3,1.5,4.4,3.9,4.6l12.7,1.1c0.1,0,0.3,0,0.4,0c1,0,2-0.3,2.7-1c0.9-0.7,1.4-1.8,1.5-2.9l1.2-13.4
-         C64.3,4.7,62.5,2.7,60.2,2.5z"/>
+         C64.3,4.7,62.5,2.7,60.2,2.5z&quot;/>
     </svg>
  
 </div>
 
-<audio autoplay="true" src="https://github.com/VocalNutria9174/mini-player/raw/master/mp3/song1.mp3">
-  
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+<audio autoplay=&quot;true&quot; src=&quot;https://github.com/VocalNutria9174/mini-player/raw/master/mp3/song1.mp3&quot;>
+    <script src=&quot;https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js&quot;></script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
-      <script id="rendered-js" >
+      <script id=&quot;rendered-js&quot; >
 TweenLite.defaultEase = Expo.easeOut;
 // change the timer in the parrenthese ˇˇˇ
-initTimer("15:00"); // other ways --> "0:15" "03:5" "5:2"
+initTimer(&quot;15:00&quot;); // other ways --> &quot;0:15&quot; &quot;03:5&quot; &quot;5:2&quot;
 
 var reloadBtn = document.querySelector('.reload');
 var timerEl = document.querySelector('.timer');
@@ -284,7 +349,7 @@ function initTimer(t) {
     date.setSeconds(time.sec);
 
     var newDate = new Date(date.valueOf() - 1000);
-    var temp = newDate.toTimeString().split(" ");
+    var temp = newDate.toTimeString().split(&quot; &quot;);
     var tempsplit = temp[0].split(':');
 
     time.min = tempsplit[1];
@@ -335,17 +400,27 @@ function countdownFinished() {
 reloadBtn.addEventListener('click', function () {
   TweenMax.to(this, 0.5, { opacity: 0, onComplete:
     function () {
-      reloadBtn.style.display = "none";
+      reloadBtn.style.display = &quot;none&quot;;
     } });
 
   TweenMax.to(timerEl, 1, { opacity: 1 });
-  initTimer("12:35");
+  initTimer(&quot;12:35&quot;);
 });
 //# sourceURL=pen.js
     </script>
 
   
+
+  <script src=&quot;https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js&quot;></script>
 </body>
 
 </html>
  
+"
+      sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation  allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write" allowTransparency="true"
+      allowpaymentrequest="true" allowfullscreen="true" class="result-iframe">
+      </iframe>
+
+  </div>
+</body>
+</html>
